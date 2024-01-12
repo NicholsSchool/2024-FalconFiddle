@@ -8,6 +8,7 @@ import com.ctre.phoenix6.Orchestra;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -20,7 +21,7 @@ public class Fiddle extends SubsystemBase {
   public Fiddle() {
 
     fiddle = new TalonFX( Constants.FiddleConstants.fiddleID );
-    fiddle.setNeutralMode(NeutralModeValue.Brake);
+    fiddle.setNeutralMode(NeutralModeValue.Brake); //is this really nessisary
     fiddle.setInverted(false);
 
     orchestra = new Orchestra();
@@ -30,7 +31,7 @@ public class Fiddle extends SubsystemBase {
 
   @Override
   public void periodic() {
-
+    SmartDashboard.putNumber( "Time: ", orchestra.getCurrentTime());
   }
 
   public void playFiddle() {

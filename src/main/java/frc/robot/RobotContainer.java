@@ -54,7 +54,6 @@ public class RobotContainer {
     // cancelling on release.
     m_driverController.b().onTrue(new InstantCommand(() -> fiddle.playFiddle(), fiddle ) );
     m_driverController.a().onTrue(new InstantCommand(() -> fiddle.pauseFiddle(), fiddle ) );
-    m_driverController.x().onTrue(new InstantCommand(() -> fiddle.stopFiddle(), fiddle ) );
   }
 
   /**
