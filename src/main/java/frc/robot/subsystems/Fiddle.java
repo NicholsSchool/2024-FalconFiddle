@@ -21,7 +21,7 @@ public class Fiddle extends SubsystemBase {
   public Fiddle() {
 
     fiddle = new TalonFX( Constants.FiddleConstants.fiddleID );
-    fiddle.setNeutralMode(NeutralModeValue.Brake); //is this really nessisary
+    fiddle.setNeutralMode(NeutralModeValue.Brake); //is this really nessis
     fiddle.setInverted(false);
 
     orchestra = new Orchestra();
