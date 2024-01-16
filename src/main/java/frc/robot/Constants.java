@@ -16,7 +16,13 @@ public final class Constants {
 
   public static class FiddleConstants {
     public static final int fiddleID = 10;
-    public static final String defaultSong = "Wii-Song.chrp";
+
+    public static class FiddleSongs {
+      public static final String ALL_STAR = "all-star.chrp";
+      public static final String CANTINA = "Cantina-Band.chrp";
+      public static final String IMPERIAL_MARCH = "Imperial-March.chrp";
+      public static final String WII_SONG = "Wii-Song.chrp";
+    }
   }
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
