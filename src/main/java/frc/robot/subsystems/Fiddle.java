@@ -16,6 +16,10 @@ public class Fiddle extends SubsystemBase {
 
   private final TalonFX fiddle;
   private final Orchestra orchestra;
+  private String[] songs = { Constants.FiddleConstants.FiddleSongs.ALL_STAR, 
+    Constants.FiddleConstants.FiddleSongs.CANTINA,
+    Constants.FiddleConstants.FiddleSongs.WII_SONG };
+  private int songIndex;
 
   /** Creates a new Fiddle. */
   public Fiddle() {
@@ -26,12 +30,16 @@ public class Fiddle extends SubsystemBase {
 
     orchestra = new Orchestra();
     orchestra.addInstrument(fiddle);
-    orchestra.loadMusic(Constants.FiddleConstants.defaultSong);
+
+    songIndex = 0;
+    orchestra.loadMusic(songs[songIndex]);
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber( "Time: ", orchestra.getCurrentTime());
+    SmartDashboard.putNumber( "Time:  ", orchestra.getCurrentTime());
+    SmartDashboard.putString("Current song:  ", this.songs[songIndex] );
+    SmartDashboard.putBoolean("Is Playing:  ", isPlayingFiddle() );
   }
 
   public void playFiddle() {
@@ -52,5 +60,10 @@ public class Fiddle extends SubsystemBase {
 
   public void loadMusic(String filepath) {
     orchestra.loadMusic(filepath);
+  }
+
+  public void nextSong() {
+    songIndex = ( songIndex + 1 ) % songs.length;
+    orchestra.loadMusic(songs[songIndex]);
   }
 }
